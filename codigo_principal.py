@@ -5,6 +5,7 @@ from funcoes_iniciais import aloca_navios
 from funcoes_iniciais import foi_derrotado
 from funcoes_iniciais import posicao_suporta
 from parametros import PAISES
+from parametros import CONFIGURACAO
 
 print(' ===================================== ')
 print('|                                     |')
@@ -26,8 +27,8 @@ print('1')
 time.sleep(1)
 """
 
-print(PAISES)
-pais=input('Selecione seu país:')
+#print(PAISES)
+#pais=input('Selecione seu país:')
 
 #aqui começa o ferro
 mapa=cria_mapa(12)
@@ -41,20 +42,31 @@ for i in range(len(mapa[0])):
 for i in range(len(mapa)):
     mapa[i][0]=numeros[i]
     mapa[i][len(mapa)-1]=numeros[i]
-for i in range(len(mapa)):
+#for i in range(len(mapa)):
     #print(''.join(mapa[i])) #assim seria string
-    print(mapa[i])
+    #print(mapa[i])
 #mapa criado como lista de listas
+
 
 
 
 #print(mapa)
 
-"""
-print (u"\u001b[40m A \u001b[41m B \u001b[42m C \u001b[43m D \u001b[0m")
-print (u"\u001b[44m A \u001b[45m B \u001b[46m C \u001b[47m D \u001b[0m")
-print (u"\u001b[40;1m c \u001b[41;1m B \u001b[42;1m C \u001b[43;1m D \u001b[0m")
-print (u"\u001b[44;1m A \u001b[45;1m B \u001b[46;1m C \u001b[47;1m D \u001b[0m")
-print (u"\u001b[30m A \u001b[31m B \u001b[32m C \u001b[33m D \u001b[0m")
-print (u"\u001b[34;1m E \u001b[35m F \u001b[36m G \u001b[37m H \u001b[0m")
-"""
+#pc seleciona pais aleatório
+paispc = []
+for p, navios in PAISES.items():
+    paispc.append(p)
+r = random.choice(paispc)
+print(r)
+
+blocos = []
+for navios, n in PAISES[r].items():
+    for i in range(n):
+        blocos.append(CONFIGURACAO[navios])
+
+mapa_pc = aloca_navios(mapa, blocos)
+for i in mapa_pc:
+    print(i)
+
+#pais_pc=(aloca_navios(mapa, random.choice(PAISES)))
+

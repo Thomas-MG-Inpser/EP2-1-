@@ -15,11 +15,11 @@ def aloca_navios(mapa, navios):
             orientacao = random.choice(['h', 'v'])
             for i in range(blocos):
                 if orientacao=='v':
-                  if (linha+(blocos-1))>=len(mapa) or mapa[linha+i][coluna]=='N':
+                  if (linha+(blocos-1))>=len(mapa) or mapa[linha+i][coluna]!=' ':
                         f=True
                         break
                 elif orientacao=='h':
-                    if (coluna+(blocos-1))>=len(mapa) or mapa[linha][coluna+i]=='N':
+                    if (coluna+(blocos-1))>=len(mapa) or mapa[linha][coluna+i]!=' ':
                         f=True
                         break
                 f=False
