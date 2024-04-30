@@ -13,8 +13,8 @@ print('| Bem-vindo ao INSPER - Batalha Naval |')
 print('|                                     |')
 print(' =======   xxxxxxxxxxxxxxxxx   ======= ')
 
-#esta parte é um temporizador e um icicializador pra ficar dahorinha
 """
+#esta parte é um temporizador e um icicializador pra ficar dahorinha
 print('digite qualquer coisa para continuar')
 u=input('')
 print('Jogo iniciando...')
@@ -31,42 +31,107 @@ time.sleep(1)
 #pais=input('Selecione seu país:')
 
 #aqui começa o ferro
-mapa=cria_mapa(12)
+mapa_ori=cria_mapa(12)
 
 alfabeto=[' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' ']
 numeros=[' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ' ']
 
-for i in range(len(mapa[0])):
-    mapa[0][i]=alfabeto[i]
-    mapa[len(mapa)-1][i]=alfabeto[i]
-for i in range(len(mapa)):
-    mapa[i][0]=numeros[i]
-    mapa[i][len(mapa)-1]=numeros[i]
-#for i in range(len(mapa)):
-    #print(''.join(mapa[i])) #assim seria string
-    #print(mapa[i])
+for i in range(len(mapa_ori[0])):
+    mapa_ori[0][i]=alfabeto[i]
+    mapa_ori[len(mapa_ori)-1][i]=alfabeto[i]
+for i in range(len(mapa_ori)):
+    mapa_ori[i][0]=numeros[i]
+    mapa_ori[i][len(mapa_ori)-1]=numeros[i]
+#for i in range(len(mapa_ori)):
+    #print(''.join(mapa_ori[i])) #assim seria string
+    #print(mapa_ori[i])
 #mapa criado como lista de listas
 
-
-
-
-#print(mapa)
 
 #pc seleciona pais aleatório
 paispc = []
 for p, navios in PAISES.items():
     paispc.append(p)
 r = random.choice(paispc)
-print(r)
+print(f'COMPUTADOR - {r}')
 
-blocos = []
-for navios, n in PAISES[r].items():
+blocos_pc = []
+for navios_pc, n in PAISES[r].items():
     for i in range(n):
-        blocos.append(CONFIGURACAO[navios])
+        blocos_pc.append(CONFIGURACAO[navios_pc])
 
-mapa_pc = aloca_navios(mapa, blocos)
+mapa_pc = aloca_navios(mapa_ori, blocos_pc)
 for i in mapa_pc:
     print(i)
 
-#pais_pc=(aloca_navios(mapa, random.choice(PAISES)))
 
+
+opa = []
+for i in PAISES:
+    opa.append(i)
+
+conta = 1
+for pais, navios in PAISES.items():
+    dic = {pais: navios}
+    print(f'{conta}: {dic}')
+    conta += 1
+
+mapa_ori=cria_mapa(12)
+
+alfabeto=[' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' ']
+numeros=[' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ' ']
+
+for i in range(len(mapa_ori[0])):
+    mapa_ori[0][i]=alfabeto[i]
+    mapa_ori[len(mapa_ori)-1][i]=alfabeto[i]
+for i in range(len(mapa_ori)):
+    mapa_ori[i][0]=numeros[i]
+    mapa_ori[i][len(mapa_ori)-1]=numeros[i]
+
+
+index_pais_player = int(input("Escolha o número da sua nação: "))-1
+pais_player = opa[index_pais_player]
+print(pais_player)
+
+blocos_player = []
+for navios_player, n in PAISES[pais_player].items():
+    for i in range(n):
+        blocos_player.append(CONFIGURACAO[navios_player])
+
+
+for blocos in blocos_player:
+    f=True
+    while f:
+        coluna_let = input('Informe a Letra: ').upper()
+        for i in range(len(alfabeto)):
+            if alfabeto[i] == coluna_let:
+                coluna = i
+        linha = int(input('Informe a Número: '))
+        orientacao = input('Informe a Orientação(v/h): ')
+        for i in range(blocos):
+            if orientacao=='v':
+                if (linha+(blocos-1))>=len(mapa_ori) or mapa_ori[linha+i][coluna]!=' ':
+                    f=True
+                    print("Opção Inválida")
+                    break
+            elif orientacao=='h':
+                if (coluna+(blocos-1))>=len(mapa_ori) or mapa_ori[linha][coluna+i]!=' ':
+                    f=True
+                    print("Opção Inválida")
+                    break
+            elif orientacao not in ['h', 'v'] or linha > len(mapa_ori)-2 or coluna > len(mapa_ori)-2:
+                    f=True
+                    print("Opção Inválida")
+                    break
+            
+            f=False
+    if orientacao=='v':
+        for i in range(blocos):
+            mapa_ori[linha+i][coluna]='N'
+    elif orientacao=='h':
+        for i in range(blocos):
+            mapa_ori[linha][coluna+i]='N'
+    for i in mapa_pc:
+        print(i)
+    for i in mapa_ori:
+        print(i)

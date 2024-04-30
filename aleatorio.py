@@ -1,10 +1,11 @@
-n=len(mapa)
+'''
+mapa =''
 for blocos in navios:
     f=True
     while f:
-        linha = random.randint(0, n-1)
-        coluna = random.randint(0, n-1)
-        orientacao = random.choice(['h', 'v'])
+        coluna = input('Informe a Letra: ')
+        linha = input('Informe a Número: ')
+        orientacao = input('Informe a Orientação(v/h): ')
         for i in range(blocos):
             if orientacao=='v':
                 if (linha+(blocos-1))>=len(mapa) or mapa[linha+i][coluna]!=' ':
@@ -21,3 +22,6 @@ for blocos in navios:
     elif orientacao=='h':
         for i in range(blocos):
             mapa[linha][coluna+i]='N'
+'''
+letra = 'C'
+print(letra.upper())
