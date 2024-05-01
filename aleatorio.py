@@ -24,4 +24,10 @@ for blocos in navios:
             mapa[linha][coluna+i]='N'
 '''
 letra = 'C'
-print(letra.upper())
+numero = 1
+ori= 'v'
+posicao=[letra, numero]
+
+         
+            
+    

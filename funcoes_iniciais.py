@@ -47,3 +47,15 @@ def foi_derrotado(mapa):
             if j == 'N':
                 return False
     return True
+
+def tiro_player(mapa, posicao):
+    coluna= posicao[0]
+    linha=int(posicao[1])
+    if mapa[linha][coluna]== ' ':
+        mapa[linha][coluna]= 'o'
+    elif mapa[linha][coluna]== 'N':
+         mapa[linha][coluna]= 'X'
+    else:
+         print('Coordenada inválida(linha 41)')
+         return mapa
+    return mapa

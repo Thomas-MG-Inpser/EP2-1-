@@ -7,6 +7,8 @@ from funcoes_iniciais import posicao_suporta
 from parametros import PAISES
 from parametros import CONFIGURACAO
 
+from funcoes_iniciais import tiro_player
+
 print(' ===================================== ')
 print('|                                     |')
 print('| Bem-vindo ao INSPER - Batalha Naval |')
@@ -61,9 +63,13 @@ for navios_pc, n in PAISES[r].items():
         blocos_pc.append(CONFIGURACAO[navios_pc])
 
 mapa_pc = aloca_navios(mapa_ori, blocos_pc)
+
+
+#imprime o mapa do pc
+"""
 for i in mapa_pc:
     print(i)
-
+"""
 
 
 opa = []
@@ -134,4 +140,25 @@ for blocos in blocos_player:
     for i in mapa_pc:
         print(i)
     for i in mapa_ori:
+        print(i)
+
+# comecar os tiros
+
+jogo_continua=True # vai ser definido pela funcao foi_derrotado
+while jogo_continua: 
+    coluna_player= input('Qual letra?')
+    coluna_player=coluna_player.upper()
+    if coluna_player not in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']:
+        print('Coordenada inválida(linha 152)')
+        continue
+    for i in range(len(alfabeto)):
+            if alfabeto[i] == coluna_player:
+                coluna_player = i
+    linha_player= input('Qual número?')
+    if linha_player not in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+        print('Coordenada inválida(linha 159)')
+        continue
+    coordenada=[coluna_player, linha_player]
+    mapa_pc= tiro_player(mapa_pc,coordenada)
+    for i in mapa_pc:
         print(i)
