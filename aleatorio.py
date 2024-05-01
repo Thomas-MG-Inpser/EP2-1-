@@ -27,7 +27,3 @@ letra = 'C'
 numero = 1
 ori= 'v'
 posicao=[letra, numero]
-
-         
-            
-    

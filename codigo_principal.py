@@ -8,6 +8,7 @@ from parametros import PAISES
 from parametros import CONFIGURACAO
 
 from funcoes_iniciais import tiro_player
+from funcoes_iniciais import tiro_pc
 
 print(' ===================================== ')
 print('|                                     |')
@@ -160,5 +161,13 @@ while jogo_continua:
         continue
     coordenada=[coluna_player, linha_player]
     mapa_pc= tiro_player(mapa_pc,coordenada)
+
+    mapa_ori= tiro_pc(mapa_ori)
     for i in mapa_pc:
         print(i)
+    for i in mapa_ori:
+        print(i)
+    player= foi_derrotado(mapa_ori)
+    pc= foi_derrotado(mapa_pc)
+    if (player or pc)==True:
+        jogo_continua=False

@@ -53,9 +53,25 @@ def tiro_player(mapa, posicao):
     linha=int(posicao[1])
     if mapa[linha][coluna]== ' ':
         mapa[linha][coluna]= 'o'
+        print('Jogador:   Água!')
     elif mapa[linha][coluna]== 'N':
          mapa[linha][coluna]= 'X'
+         print('Jogador:   BOOOOOOOM!!!')
     else:
          print('Coordenada inválida(linha 41)')
          return mapa
     return mapa
+
+def tiro_pc(mapa):
+    f=True
+    while f:
+        linha= random.randint(1,10)
+        coluna= random.randint(1,10)
+        if mapa[linha][coluna]==' ':
+            mapa[linha][coluna]= 'o'
+            print('Computador:   Água!')
+            return mapa
+        elif mapa[linha][coluna]=='N':
+            mapa[linha][coluna]='X'
+            print('Computador:   BOOOOOOOM!!!')
+            return mapa
