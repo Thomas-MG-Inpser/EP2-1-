@@ -30,11 +30,9 @@ print('1')
 time.sleep(1)
 """
 
-#print(PAISES)
-#pais=input('Selecione seu país:')
-
 #aqui começa o ferro
 mapa_ori=cria_mapa(12)
+
 
 alfabeto=[' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' ']
 numeros=[' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ' ']
@@ -50,6 +48,7 @@ for i in range(len(mapa_ori)):
     #print(mapa_ori[i])
 #mapa criado como lista de listas
 
+mapa_branco=mapa_ori
 
 #pc seleciona pais aleatório
 paispc = []
@@ -171,3 +170,8 @@ while jogo_continua:
     pc= foi_derrotado(mapa_pc)
     if (player or pc)==True:
         jogo_continua=False
+
+if player:
+    print('Computador venceu!')
+if pc:
+    print('Você venceu!!!')

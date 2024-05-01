@@ -27,3 +27,5 @@ letra = 'C'
 numero = 1
 ori= 'v'
 posicao=[letra, numero]
+
+print(f'\u001b[31m{posicao[0]}',' ')
