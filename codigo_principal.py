@@ -175,3 +175,7 @@ if player:
     print('Computador venceu!')
 if pc:
     print('Você venceu!!!')
+
+#escrevi qualquer coisa
+
+x=0
