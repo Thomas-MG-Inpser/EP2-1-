@@ -58,7 +58,7 @@ def tiro_player(mapa, posicao):
          mapa[linha][coluna]= 'X'
          print('Jogador:   BOOOOOOOM!!!')
     else:
-         print('Coordenada inválida(linha 41)')
+         print('Coordenada inválida.')
          return mapa
     return mapa
 
