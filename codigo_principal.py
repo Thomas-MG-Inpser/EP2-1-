@@ -48,8 +48,16 @@ for i in range(len(mapa_ori)):
     #print(mapa_ori[i])
 #mapa criado como lista de listas
 
-mapa_branco=mapa_ori
+mapa_branco=cria_mapa(12)
 
+for i in range(len(mapa_branco[0])):
+    mapa_branco[0][i]=alfabeto[i]
+    mapa_branco[len(mapa_branco)-1][i]=alfabeto[i]
+for i in range(len(mapa_branco)):
+    mapa_branco[i][0]=numeros[i]
+    mapa_branco[i][len(mapa_branco)-1]=numeros[i]
+
+    
 #pc seleciona pais aleatório
 paispc = []
 for p, navios in PAISES.items():
@@ -99,6 +107,11 @@ index_pais_player = int(input("Escolha o número da sua nação: "))-1
 pais_player = opa[index_pais_player]
 print(pais_player)
 
+print(f'COMPUTADOR - {r}                                          JOGADOR - {pais_player}')
+for i in range(len(mapa_branco)):
+    print(mapa_branco[i], end = ' ')
+    print(mapa_ori[i])
+
 blocos_player = []
 for navios_player, n in PAISES[pais_player].items():
     for i in range(n):
@@ -137,10 +150,10 @@ for blocos in blocos_player:
     elif orientacao=='h':
         for i in range(blocos):
             mapa_ori[linha][coluna+i]='N'
-    for i in mapa_pc:
-        print(i)
-    for i in mapa_ori:
-        print(i)
+    print(f'COMPUTADOR - {r}                                          JOGADOR - {pais_player}')
+    for i in range(len(mapa_pc)):
+        print(mapa_pc[i], end = ' ')
+        print(mapa_ori[i])
 
 # comecar os tiros
 
