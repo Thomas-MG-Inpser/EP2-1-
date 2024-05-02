@@ -37,6 +37,7 @@ for i in range(len(listaj)):
         print(f'\u001b[30m{listaj[i]}\u001b[0m', end = ' ')
 '''
 
+'''
 mapa_branco = [
 [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' '],
 ['1', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '1'],
@@ -51,12 +52,14 @@ mapa_branco = [
 ['10', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '10'], 
 [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' ']
 ]
+'''
+
+mapa_branco = [['X', 'o', 'N'], [' ', ' ', 'o'], ['X', 'X', 'N']]
 
 conta = 1
 def cores_player(mapa_branco):
     conta = 1
     for i in range(len(mapa_branco)):
-        print('\u001b[0m')
         for j in range(len(mapa_branco)):
             if conta != len(mapa_branco):
                 if mapa_branco[i][j] == 'N':
@@ -91,8 +94,6 @@ def cores_player(mapa_branco):
                     print(f'\u001b[40m  {mapa_branco[i][j]} ')
                 else:
                     print('\u001b[40m    ')
-        #if len(mapa_branco[i]) == 12:
-            #print('\u001b[0m', end = '')
     return ''   
 
-#print(cores_player(mapa_branco))
+print(cores_player(mapa_branco))
