@@ -11,10 +11,11 @@ from funcoes_iniciais import tiro_player
 from funcoes_iniciais import tiro_pc
 
 print(' ===================================== ')
-print('|                                     |')
-print('| Bem-vindo ao INSPER - Batalha Naval |')
-print('|                                     |')
+print('|         Design de Software          |')
+print('|   Batalha Naval - Thomas e Theron   |')
+print('|              Turma B                |')
 print(' =======   xxxxxxxxxxxxxxxxx   ======= ')
+print('\n')
 
 """
 #esta parte é um temporizador e um icicializador pra ficar dahorinha
@@ -31,7 +32,7 @@ while reinicia:
     time.sleep(1)
     print('1')
     time.sleep(1)
-    
+    print('\n')
 
     #aqui começa o ferro
     mapa_ori=cria_mapa(12)
@@ -66,7 +67,6 @@ while reinicia:
     for p, navios in PAISES.items():
         paispc.append(p)
     r = random.choice(paispc)
-    print(f'COMPUTADOR - {r}')
 
     blocos_pc = []
     for navios_pc, n in PAISES[r].items():
@@ -109,7 +109,7 @@ while reinicia:
     index_pais_player = int(input("Escolha o número da sua nação: "))-1
     pais_player = opa[index_pais_player]
     print(pais_player)
-
+    print('\n')
     print(f'COMPUTADOR - {r}                                          JOGADOR - {pais_player}')
     for i in range(len(mapa_branco)):
         print(mapa_branco[i], end = ' ')
@@ -124,6 +124,7 @@ while reinicia:
     for blocos in blocos_player:
         f=True
         while f:
+            print('\n')
             coluna_let = input('Informe a Letra: ').upper()
             if coluna_let not in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']:
                 print("Opção Inválida")
@@ -164,6 +165,8 @@ while reinicia:
         for i in range(len(mapa_pc)):
             print(mapa_branco[i], end = ' ')
             print(mapa_ori[i])
+    
+    print('\n')
 
     # comecar os tiros
     print('Hora de atacar!')
@@ -195,6 +198,7 @@ while reinicia:
                 elif mapa_pc[i][j]=='X':
                     mapa_branco[i][j]='X'
 
+        print('\n')
         print(f'COMPUTADOR - {r}                                          JOGADOR - {pais_player}')
         for i in range(len(mapa_pc)):
             print(mapa_branco[i], end = ' ')
