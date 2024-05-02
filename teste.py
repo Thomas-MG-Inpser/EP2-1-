@@ -197,9 +197,9 @@ while reinicia:
 
         print('\n')
         print(f'COMPUTADOR - {r}                                          JOGADOR - {pais_player}')
-        for i in range(len(mapa_pc)):
-            print(mapa_branco[i], end = ' ')
-            print(mapa_ori[i])
+        
+        print(cores_player(mapa_branco), end = ' ')
+        print(cores_player(mapa_ori))
         player= foi_derrotado(mapa_ori)
         pc= foi_derrotado(mapa_pc)
         if (player or pc)==True:

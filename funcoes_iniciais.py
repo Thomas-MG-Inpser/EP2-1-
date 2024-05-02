@@ -58,7 +58,7 @@ def tiro_player(mapa, posicao):
          mapa[linha][coluna]= 'X'
          print('Jogador:   BOOOOOOOM!!!')
     else:
-         print('Coordenada inválida.')
+         print('"Só pra ter certeza" (Atirou no mesmo lugar, que pena...).')
          return mapa
     return mapa
 
