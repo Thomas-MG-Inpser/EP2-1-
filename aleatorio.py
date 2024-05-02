@@ -78,8 +78,3 @@ def cores_player(mapa_branco):
                     print('\u001b[40m    ')
     print('\u001b[0m')  
     return ''   
-
-print(cores_player(mapa_branco))
-
-print(mapa_branco, end = ' ')
-print(mapa_branco)
