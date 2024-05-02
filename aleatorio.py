@@ -54,7 +54,7 @@ mapa_branco = [
 ]
 '''
 
-mapa_branco = [['X', 'o', 'N'], [' ', ' ', 'o'], ['X', 'X', 'N']]
+#mapa_branco = [['X', 'o', 'N'], [' ', ' ', 'o'], ['X', 'X', 'N']]
 
 conta = 1
 def cores_player(mapa_branco):
@@ -96,4 +96,4 @@ def cores_player(mapa_branco):
                     print('\u001b[40m    ')
     return ''   
 
-print(cores_player(mapa_branco))
+#print(cores_player(mapa_branco))
