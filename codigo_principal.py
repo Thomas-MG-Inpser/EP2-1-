@@ -10,6 +10,8 @@ from parametros import CONFIGURACAO
 from funcoes_iniciais import tiro_player
 from funcoes_iniciais import tiro_pc
 
+from aleatorio import cores_player
+
 print(' ===================================== ')
 print('|         Design de Software          |')
 print('|   Batalha Naval - Thomas e Theron   |')
@@ -34,7 +36,6 @@ while reinicia:
     time.sleep(1)
     print('\n')
 
-    #aqui começa o ferro
     mapa_ori=cria_mapa(12)
 
 
@@ -47,10 +48,6 @@ while reinicia:
     for i in range(len(mapa_ori)):
         mapa_ori[i][0]=numeros[i]
         mapa_ori[i][len(mapa_ori)-1]=numeros[i]
-    #for i in range(len(mapa_ori)):
-        #print(''.join(mapa_ori[i])) #assim seria string
-        #print(mapa_ori[i])
-    #mapa criado como lista de listas
 
     mapa_branco=cria_mapa(12)
 
@@ -75,14 +72,7 @@ while reinicia:
 
     mapa_pc = aloca_navios(mapa_ori, blocos_pc)
 
-
-    #imprime o mapa do pc
-    """
-    for i in mapa_pc:
-        print(i)
-    """
-
-
+    #opa é a lista de paises
     opa = []
     for i in PAISES:
         opa.append(i)
@@ -98,6 +88,9 @@ while reinicia:
     alfabeto=[' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' ']
     numeros=[' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ' ']
 
+    #alfabeto_join = '    '.join(alfabeto)
+    #print(f'\u001b[30m{'    '.join(alfabeto)}\u001b[0m')
+
     for i in range(len(mapa_ori[0])):
         mapa_ori[0][i]=alfabeto[i]
         mapa_ori[len(mapa_ori)-1][i]=alfabeto[i]
@@ -110,7 +103,11 @@ while reinicia:
     pais_player = opa[index_pais_player]
     print(pais_player)
     print('\n')
-    print(f'COMPUTADOR - {r}                                          JOGADOR - {pais_player}')
+    print(f'COMPUTADOR - {r}                                       JOGADOR - {pais_player}')
+
+    #print(cores_player(mapa_branco), end = ' ')
+    #print(cores_player(mapa_branco))
+
     for i in range(len(mapa_branco)):
         print(mapa_branco[i], end = ' ')
         print(mapa_ori[i])
